@@ -27,13 +27,12 @@
     </div>
   </header>
 
-  <main class="container" style="padding: 60px 20px;">
-    <h2 style="text-align: center;">Let’s Get You Sorted</h2>
+  <main class="container" style="padding: 60px 0;">
+    <h2>Let’s Get You Sorted</h2>
     <p style="text-align: center; max-width: 700px; margin: 10px auto 40px;">Reach out to SyncTech for friendly, fast mobile or remote IT support. We'll get back to you within the hour during business hours.</p>
-
-    <div style="display: flex; flex-wrap: wrap; gap: 40px;">
-      <div style="flex: 2; min-width: 320px; background: #1e1e1e; border-radius: 12px; padding: 30px; box-shadow: 0 0 10px rgba(0,255,206,0.07);">
-        <form method="POST" action="https://formspree.io/f/xoqglzwl">
+    <div class="form-flex" style="display: flex; flex-wrap: wrap; gap: 48px; justify-content: center;">
+      <div class="form-card">
+        <form method="POST" action="https://formspree.io/f/xoqglzwl" autocomplete="off">
           <div class="form-group">
             <input type="text" name="name" id="contact-name" required placeholder=" " />
             <label for="contact-name"><span style="color:#00ffce;">&#128100;</span> Name</label>
@@ -47,21 +46,21 @@
             <label for="contact-phone"><span style="color:#00ffce;">&#128222;</span> Phone</label>
           </div>
           <div class="form-group">
-            <textarea name="message" id="contact-message" rows="6" required placeholder=" "></textarea>
+            <textarea name="message" id="contact-message" rows="5" required placeholder=" "></textarea>
             <label for="contact-message"><span style="color:#00ffce;">&#9998;</span> Your Message</label>
           </div>
-          <button type="submit" class="btn-primary" style="width:100%;">Send Message</button>
+          <button type="submit" class="btn-primary">Send Message</button>
         </form>
       </div>
-      <div style="flex: 1; min-width: 260px; background: #181818; border-radius: 12px; padding: 30px; box-shadow: 0 0 10px rgba(0,255,206,0.05);">
-        <h3 style="color:#00ffce;">Contact Details</h3>
-        <ul style="line-height: 2; font-size: 1.05rem; list-style: none; padding: 0;">
-          <li><span style="color:#00ffce;">&#128222;</span> <a href="tel:0800123456" style="color:#00ffce;">0800 123 456</a></li>
-          <li><span style="color:#00ffce;">&#9993;</span> <a href="mailto:help@synctech.co.nz" style="color:#00ffce;">help@synctech.co.nz</a></li>
+      <div class="sidebar-card">
+        <h3>Contact Details</h3>
+        <ul>
+          <li><span style="color:#00ffce;">&#128222;</span> <a href="tel:0800123456">0800 123 456</a></li>
+          <li><span style="color:#00ffce;">&#9993;</span> <a href="mailto:help@synctech.co.nz">help@synctech.co.nz</a></li>
           <li><span style="color:#00ffce;">&#127968;</span> Mobile & Remote Service NZ-wide</li>
         </ul>
-        <h3 style="color:#00ffce; margin-top:30px;">Why Choose SyncTech?</h3>
-        <ul style="line-height: 1.8;">
+        <h3 style="margin-top:24px;">Why Choose SyncTech?</h3>
+        <ul>
           <li>✔ We come to you — at home or your workplace</li>
           <li>✔ Remote support available across NZ</li>
           <li>✔ No obligation & no fix, no fee</li>
