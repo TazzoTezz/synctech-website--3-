@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Book a Technician | SyncTech</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <img src="images/logo.png" alt="SyncTech Logo" style="height:65px;">
+      </div>
+      <div class="nav-toggle"><span></span><span></span><span></span></div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="book.html" class="active">Book</a>
+        <a href="plans.html">Plans</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 60px 20px;">
+    <h2 style="text-align: center;">Book a Technician</h2>
+    <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;">Let us know what issue you're having, and we'll schedule a mobile visit or remote session as soon as possible.</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 40px;">
+      <div style="flex: 2; min-width: 320px; background: #1e1e1e; border-radius: 12px; padding: 30px; box-shadow: 0 0 10px rgba(0,255,206,0.07);">
+        <form method="POST" action="https://formspree.io/f/xoqglzwl">
+          <div class="form-group">
+            <input type="text" name="name" id="book-name" required placeholder=" " />
+            <label for="book-name"><span style="color:#00ffce;">&#128100;</span> Name</label>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" id="book-email" required placeholder=" " />
+            <label for="book-email"><span style="color:#00ffce;">&#9993;</span> Email</label>
+          </div>
+          <div class="form-group">
+            <input type="tel" name="phone" id="book-phone" placeholder=" " />
+            <label for="book-phone"><span style="color:#00ffce;">&#128222;</span> Phone</label>
+          </div>
+          <div class="form-group">
+            <textarea name="issue" id="book-issue" rows="5" required placeholder=" "></textarea>
+            <label for="book-issue"><span style="color:#00ffce;">&#9881;</span> What do you need help with?</label>
+          </div>
+          <div class="form-group">
+            <input type="datetime-local" name="datetime" id="book-datetime" placeholder=" " />
+            <label for="book-datetime"><span style="color:#00ffce;">&#128197;</span> Preferred Date & Time</label>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;">Book Now</button>
+        </form>
+      </div>
+      <div style="flex: 1; min-width: 260px; background: #181818; border-radius: 12px; padding: 30px; box-shadow: 0 0 10px rgba(0,255,206,0.05);">
+        <h3 style="color:#00ffce;">How Booking Works</h3>
+        <ul style="line-height: 2; font-size: 1.05rem; list-style: none; padding: 0;">
+          <li>✔ We confirm your booking by phone or email</li>
+          <li>✔ Choose mobile or remote support</li>
+          <li>✔ No fix, no fee guarantee</li>
+          <li>✔ Same-day appointments often available</li>
+          <li>✔ Friendly, qualified technicians</li>
+        </ul>
+        <div style="margin-top:30px;">
+          <span style="color:#00ffce;">&#128222;</span> <b>Need urgent help?</b><br>
+          <a href="tel:0800123456" style="color:#00ffce;">0800 123 456</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 SyncTech. Your On-Call IT Team.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

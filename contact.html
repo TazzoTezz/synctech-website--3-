@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact Us | SyncTech</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <img src="images/logo.png" alt="SyncTech Logo" style="height:65px;">
+      </div>
+      <div class="nav-toggle"><span></span><span></span><span></span></div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="book.html">Book</a>
+        <a href="plans.html">Plans</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding: 60px 20px;">
+    <h2 style="text-align: center;">Let’s Get You Sorted</h2>
+    <p style="text-align: center; max-width: 700px; margin: 10px auto 40px;">Reach out to SyncTech for friendly, fast mobile or remote IT support. We'll get back to you within the hour during business hours.</p>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 40px;">
+      <div style="flex: 2; min-width: 320px; background: #1e1e1e; border-radius: 12px; padding: 30px; box-shadow: 0 0 10px rgba(0,255,206,0.07);">
+        <form method="POST" action="https://formspree.io/f/xoqglzwl">
+          <div class="form-group">
+            <input type="text" name="name" id="contact-name" required placeholder=" " />
+            <label for="contact-name"><span style="color:#00ffce;">&#128100;</span> Name</label>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" id="contact-email" required placeholder=" " />
+            <label for="contact-email"><span style="color:#00ffce;">&#9993;</span> Email</label>
+          </div>
+          <div class="form-group">
+            <input type="tel" name="phone" id="contact-phone" placeholder=" " />
+            <label for="contact-phone"><span style="color:#00ffce;">&#128222;</span> Phone</label>
+          </div>
+          <div class="form-group">
+            <textarea name="message" id="contact-message" rows="6" required placeholder=" "></textarea>
+            <label for="contact-message"><span style="color:#00ffce;">&#9998;</span> Your Message</label>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;">Send Message</button>
+        </form>
+      </div>
+      <div style="flex: 1; min-width: 260px; background: #181818; border-radius: 12px; padding: 30px; box-shadow: 0 0 10px rgba(0,255,206,0.05);">
+        <h3 style="color:#00ffce;">Contact Details</h3>
+        <ul style="line-height: 2; font-size: 1.05rem; list-style: none; padding: 0;">
+          <li><span style="color:#00ffce;">&#128222;</span> <a href="tel:0800123456" style="color:#00ffce;">0800 123 456</a></li>
+          <li><span style="color:#00ffce;">&#9993;</span> <a href="mailto:help@synctech.co.nz" style="color:#00ffce;">help@synctech.co.nz</a></li>
+          <li><span style="color:#00ffce;">&#127968;</span> Mobile & Remote Service NZ-wide</li>
+        </ul>
+        <h3 style="color:#00ffce; margin-top:30px;">Why Choose SyncTech?</h3>
+        <ul style="line-height: 1.8;">
+          <li>✔ We come to you — at home or your workplace</li>
+          <li>✔ Remote support available across NZ</li>
+          <li>✔ No obligation & no fix, no fee</li>
+          <li>✔ Friendly, fast, and experienced techs</li>
+          <li>✔ Same-day appointments available</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 SyncTech. Expert Mobile IT Help, Wherever You Are.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
