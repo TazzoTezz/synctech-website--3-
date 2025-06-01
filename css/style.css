@@ -109,6 +109,77 @@ body {
   margin-bottom: 15px;
 }
 
+/* Modern floating label form fields */
+.form-group {
+  position: relative;
+  margin-bottom: 28px;
+}
+
+.form-group input,
+.form-group textarea {
+  background: #181e22;
+  border: 1.5px solid #222;
+  color: #e0e0e0;
+  border-radius: 10px;
+  padding: 22px 16px 10px 16px;
+  font-size: 1rem;
+  width: 100%;
+  transition: border 0.2s, box-shadow 0.2s, background 0.2s;
+  outline: none;
+  box-shadow: 0 2px 8px rgba(0,255,206,0.04);
+  resize: none;
+  appearance: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #00ffce;
+  background: #161a1d;
+  box-shadow: 0 0 0 2px rgba(0,255,206,0.13);
+}
+
+.form-group label {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  color: #aaa;
+  font-size: 1rem;
+  background: transparent;
+  pointer-events: none;
+  transition: 0.2s;
+  padding: 0 4px;
+  font-weight: 400;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:focus + label,
+.form-group textarea:not(:placeholder-shown) + label {
+  top: 6px;
+  left: 14px;
+  font-size: 0.85rem;
+  color: #00ffce;
+  background: #181e22;
+}
+
+form button.btn-primary {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(0,255,206,0.08);
+  border: none;
+}
+
+/* Feature images: consistent size and fit */
+.feature img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  background: #232323;
+  display: block;
+}
+
 .footer {
   background-color: #1e1e1e;
   text-align: center;
@@ -159,60 +230,6 @@ body {
     right: 20px;
     top: 25px;
   }
-}
-
-/* Modern floating label form fields */
-.form-group {
-  position: relative;
-  margin-bottom: 28px;
-}
-
-.form-group input,
-.form-group textarea {
-  background: #181818;
-  border: 1.5px solid #222;
-  color: #e0e0e0;
-  border-radius: 8px;
-  padding: 20px 14px 10px 14px;
-  font-size: 1rem;
-  width: 100%;
-  transition: border 0.2s, box-shadow 0.2s;
-  outline: none;
-  resize: none;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: #00ffce;
-  box-shadow: 0 0 0 2px rgba(0,255,206,0.12);
-}
-
-.form-group label {
-  position: absolute;
-  top: 18px;
-  left: 16px;
-  color: #aaa;
-  font-size: 1rem;
-  background: transparent;
-  pointer-events: none;
-  transition: 0.2s;
-  padding: 0 4px;
-}
-
-.form-group input:focus + label,
-.form-group input:not(:placeholder-shown) + label,
-.form-group textarea:focus + label,
-.form-group textarea:not(:placeholder-shown) + label {
-  top: 6px;
-  left: 12px;
-  font-size: 0.85rem;
-  color: #00ffce;
-  background: #181818;
-}
-
-form button.btn-primary {
-  margin-top: 10px;
-  font-size: 1.1rem;
 }
 
 @media (max-width: 900px) {
