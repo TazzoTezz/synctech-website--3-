@@ -29,45 +29,57 @@
 
   <main class="container" style="padding: 60px 0;">
     <h2>Book a Technician</h2>
-    <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;">Let us know what issue you're having, and we'll schedule a mobile visit or remote session as soon as possible.</p>
-    <div class="form-flex" style="display: flex; flex-wrap: wrap; gap: 48px; justify-content: center;">
-      <div class="form-card">
+    <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;">
+      Let us know what issue you're having, and we'll schedule a mobile visit or remote session as soon as possible.
+    </p>
+    <div style="display: flex; flex-wrap: wrap; gap: 48px; justify-content: center;">
+      <div style="flex:2; min-width:320px; max-width:480px; background:#181a1b; border-radius:18px; box-shadow:0 2px 18px rgba(0,255,206,0.07); padding:40px 28px;">
         <form method="POST" action="https://formspree.io/f/xoqglzwl" autocomplete="off">
-          <div class="form-group">
-            <input type="text" name="name" id="book-name" required placeholder=" " />
-            <label for="book-name"><span style="color:#00ffce;">&#128100;</span> Name</label>
+          <div style="margin-bottom: 26px;">
+            <label for="book-name" style="font-weight:500; color:#00ffce; display:block; margin-bottom:6px;">
+              <span style="margin-right:8px;">&#128100;</span> Name
+            </label>
+            <input type="text" id="book-name" name="name" required style="width:100%; padding:16px; border-radius:8px; border:1.5px solid #23272a; background:#23272a; color:#e0e0e0; font-size:1rem;">
           </div>
-          <div class="form-group">
-            <input type="email" name="email" id="book-email" required placeholder=" " />
-            <label for="book-email"><span style="color:#00ffce;">&#9993;</span> Email</label>
+          <div style="margin-bottom: 26px;">
+            <label for="book-email" style="font-weight:500; color:#00ffce; display:block; margin-bottom:6px;">
+              <span style="margin-right:8px;">&#9993;</span> Email
+            </label>
+            <input type="email" id="book-email" name="email" required style="width:100%; padding:16px; border-radius:8px; border:1.5px solid #23272a; background:#23272a; color:#e0e0e0; font-size:1rem;">
           </div>
-          <div class="form-group">
-            <input type="tel" name="phone" id="book-phone" placeholder=" " />
-            <label for="book-phone"><span style="color:#00ffce;">&#128222;</span> Phone</label>
+          <div style="margin-bottom: 26px;">
+            <label for="book-phone" style="font-weight:500; color:#00ffce; display:block; margin-bottom:6px;">
+              <span style="margin-right:8px;">&#128222;</span> Phone
+            </label>
+            <input type="tel" id="book-phone" name="phone" style="width:100%; padding:16px; border-radius:8px; border:1.5px solid #23272a; background:#23272a; color:#e0e0e0; font-size:1rem;">
           </div>
-          <div class="form-group">
-            <textarea name="issue" id="book-issue" rows="5" required placeholder=" "></textarea>
-            <label for="book-issue"><span style="color:#00ffce;">&#9881;</span> What do you need help with?</label>
+          <div style="margin-bottom: 26px;">
+            <label for="book-issue" style="font-weight:500; color:#00ffce; display:block; margin-bottom:6px;">
+              <span style="margin-right:8px;">&#9881;</span> What do you need help with?
+            </label>
+            <textarea id="book-issue" name="issue" rows="5" required style="width:100%; padding:16px; border-radius:8px; border:1.5px solid #23272a; background:#23272a; color:#e0e0e0; font-size:1rem; resize:vertical;"></textarea>
           </div>
-          <div class="form-group">
-            <input type="datetime-local" name="datetime" id="book-datetime" placeholder=" " />
-            <label for="book-datetime"><span style="color:#00ffce;">&#128197;</span> Preferred Date & Time</label>
+          <div style="margin-bottom: 32px;">
+            <label for="book-datetime" style="font-weight:500; color:#00ffce; display:block; margin-bottom:6px;">
+              <span style="margin-right:8px;">&#128197;</span> Preferred Date & Time
+            </label>
+            <input type="datetime-local" id="book-datetime" name="datetime" style="width:100%; padding:16px; border-radius:8px; border:1.5px solid #23272a; background:#23272a; color:#e0e0e0; font-size:1rem;">
           </div>
-          <button type="submit" class="btn-primary">Book Now</button>
+          <button type="submit" class="btn-primary" style="width:100%; font-size:1.15rem;">Book Now</button>
         </form>
       </div>
-      <div class="sidebar-card">
-        <h3>How Booking Works</h3>
-        <ul>
+      <div style="flex:1; min-width:260px; max-width:340px; background:#161a1d; border-radius:14px; box-shadow:0 2px 12px rgba(0,255,206,0.04); padding:36px 22px; color:#b0b0b0; display:flex; flex-direction:column; justify-content:center;">
+        <h3 style="color:#00ffce; margin-bottom:18px;">How Booking Works</h3>
+        <ul style="list-style:none; padding:0; font-size:1.01rem; margin-bottom:18px;">
           <li>✔ We confirm your booking by phone or email</li>
           <li>✔ Choose mobile or remote support</li>
           <li>✔ No fix, no fee guarantee</li>
           <li>✔ Same-day appointments often available</li>
           <li>✔ Friendly, qualified technicians</li>
         </ul>
-        <div style="margin-top:30px;">
+        <div style="margin-top:18px;">
           <span style="color:#00ffce;">&#128222;</span> <b>Need urgent help?</b><br>
-          <a href="tel:0800123456">0800 123 456</a>
+          <a href="tel:0800796233" style="color:#00ffce; font-weight:600;">0800 SYNCED <span style="font-size:0.95em;">(0800 796 233)</span></a>
         </div>
       </div>
     </div>
