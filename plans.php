@@ -42,31 +42,30 @@
       <div class="feature">
         <h3>Pay As You Go</h3>
         <p>No contract. Just book when you need us.<br>
-        <b>$120/hr</b> (minimum 1 hour, then $30 per 15 min)<br>
+        <b>$90/hr</b> (minimum 1 hour, then charged in 30 min increments)<br>
         <span style="color:#00ffce;">No fix, no fee guarantee.</span></p>
       </div>
       <div class="feature">
-        <h3>Home Support Plan</h3>
-        <p>Priority support, remote help, and annual checkup.<br>
-        <b>$29/month</b> or <b>$299/year</b><br>
+        <h3>Support Plan</h3>
+        <p>Includes 2 hours support per month and a free annual PC health check.<br>
+        <b>$150/month</b><br>
         <ul style="text-align:left; margin:10px 0 0 0; padding-left:18px;">
-          <li>✔ Unlimited remote support</li>
-          <li>✔ Annual onsite checkup</li>
+          <li>✔ 2 hours of support per month</li>
+          <li>✔ Free annual PC health check</li>
           <li>✔ Priority booking</li>
-          <li>✔ Discounted onsite rates</li>
+          <li>✔ Discounted additional hours</li>
         </ul>
         </p>
       </div>
       <div class="feature">
-        <h3>Business Support Plan</h3>
-        <p>For small businesses needing ongoing IT help.<br>
-        <b>From $79/month</b><br>
-        <ul style="text-align:left; margin:10px 0 0 0; padding-left:18px;">
-          <li>✔ Unlimited remote support</li>
-          <li>✔ Priority onsite response</li>
-          <li>✔ Proactive maintenance</li>
-          <li>✔ Staff training & advice</li>
-        </ul>
+        <h3>Business Support</h3>
+        <p>
+          <b>Contact us to discuss</b><br>
+          <ul style="text-align:left; margin:10px 0 0 0; padding-left:18px;">
+            <li>✔ Tailored support for your business</li>
+            <li>✔ Flexible plans and response times</li>
+            <li>✔ Proactive maintenance and advice</li>
+          </ul>
         </p>
       </div>
     </div>
