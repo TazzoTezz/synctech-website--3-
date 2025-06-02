@@ -46,14 +46,25 @@ a:hover { color: #00e6b8; }
   display: none;
   flex-direction: column;
   cursor: pointer;
-  z-index: 1001;
+  z-index: 2100;
   min-width: 44px;
   min-height: 44px;
   justify-content: center;
   align-items: center;
   padding: 8px;
-  background: none;
-  border: none;
+  background: #181a1b;
+  border: 2px solid #00ffce;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,255,206,0.08);
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  transition: background 0.2s, border 0.2s;
+}
+.nav-toggle.active,
+.nav-toggle:hover {
+  background: #23272a;
+  border-color: #00e6b8;
 }
 .nav-toggle span {
   height: 3px;
@@ -160,14 +171,9 @@ a:hover { color: #00e6b8; }
   }
   .nav-toggle {
     display: flex;
-    position: fixed;
+    position: absolute;
+    top: 24px;
     right: 24px;
-    top: 28px;
-    z-index: 2100;
-    background: #181a1b;
-    border-radius: 8px;
-    border: 1.5px solid #23272a;
-    box-shadow: 0 2px 12px rgba(0,255,206,0.08);
   }
   .nav-toggle.active span {
     background: #00ffce;
@@ -186,8 +192,9 @@ a:hover { color: #00e6b8; }
     max-width: 100vw;
   }
   .nav-toggle {
+    top: 12px;
     right: 10px;
-    top: 18px;
+    padding: 6px;
   }
 }
 
@@ -523,14 +530,9 @@ body { animation: fadeIn 0.8s ease-in; }
   }
   .nav-toggle {
     display: flex;
-    position: fixed;
+    position: absolute;
+    top: 24px;
     right: 24px;
-    top: 28px;
-    z-index: 2100;
-    background: #181a1b;
-    border-radius: 8px;
-    border: 1.5px solid #23272a;
-    box-shadow: 0 2px 12px rgba(0,255,206,0.08);
   }
   .nav-toggle.active span {
     background: #00ffce;
