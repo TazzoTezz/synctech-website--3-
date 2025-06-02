@@ -1,14 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('.nav');
+
+  // Rebuild burger menu logic for reliability
   if (toggle && nav) {
+    // Toggle menu on burger click
     toggle.addEventListener('click', function (e) {
       e.stopPropagation();
       nav.classList.toggle('show');
       toggle.classList.toggle('active');
     });
 
-    // Also close nav when a nav link is clicked (for mobile UX)
+    // Close menu when a nav link is clicked (mobile UX)
     nav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         nav.classList.remove('show');
@@ -16,9 +19,21 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Close nav when clicking outside on mobile
+    // Close menu when clicking outside nav or burger
     document.addEventListener('click', (e) => {
-      if (nav.classList.contains('show') && !nav.contains(e.target) && !toggle.contains(e.target)) {
+      if (
+        nav.classList.contains('show') &&
+        !nav.contains(e.target) &&
+        !toggle.contains(e.target)
+      ) {
+        nav.classList.remove('show');
+        toggle.classList.remove('active');
+      }
+    });
+
+    // Accessibility: close menu on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && nav.classList.contains('show')) {
         nav.classList.remove('show');
         toggle.classList.remove('active');
       }
