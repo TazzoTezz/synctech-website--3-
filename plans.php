@@ -41,32 +41,41 @@
     <div class="feature-list">
       <div class="feature">
         <h3>Pay As You Go</h3>
-        <p>No contract. Just book when you need us.<br>
-        <b>$90/hr</b> (minimum 1 hour, then charged in 30 min increments)<br>
-        <span style="color:#00ffce;">No fix, no fee guarantee.</span></p>
+        <div style="margin: 12px 0;">
+          <span style="display:inline-block; background:#23272a; color:#00ffce; font-size:1.5rem; font-weight:700; border-radius:7px; padding:8px 22px; margin-bottom:6px;">
+            $90<span style="font-size:1rem; font-weight:400;">/hr</span>
+          </span>
+        </div>
+        <p style="margin-bottom:8px;">Minimum 1 hour, then charged in 30 min increments</p>
+        <span style="color:#00ffce; font-weight:500;">No fix, no fee guarantee.</span>
       </div>
       <div class="feature">
         <h3>Support Plan</h3>
-        <p>Includes 2 hours support per month and a free annual PC health check.<br>
-        <b>$150/month</b><br>
+        <div style="margin: 12px 0;">
+          <span style="display:inline-block; background:#23272a; color:#00ffce; font-size:1.5rem; font-weight:700; border-radius:7px; padding:8px 22px; margin-bottom:6px;">
+            $150<span style="font-size:1rem; font-weight:400;">/month</span>
+          </span>
+        </div>
+        <p style="margin-bottom:8px;">Includes 2 hours support per month and a free annual PC health check.</p>
         <ul style="text-align:left; margin:10px 0 0 0; padding-left:18px;">
           <li>✔ 2 hours of support per month</li>
           <li>✔ Free annual PC health check</li>
           <li>✔ Priority booking</li>
           <li>✔ Discounted additional hours</li>
         </ul>
-        </p>
       </div>
       <div class="feature">
         <h3>Business Support</h3>
-        <p>
-          <b>Contact us to discuss</b><br>
-          <ul style="text-align:left; margin:10px 0 0 0; padding-left:18px;">
-            <li>✔ Tailored support for your business</li>
-            <li>✔ Flexible plans and response times</li>
-            <li>✔ Proactive maintenance and advice</li>
-          </ul>
-        </p>
+        <div style="margin: 12px 0;">
+          <span style="display:inline-block; background:#23272a; color:#00ffce; font-size:1.2rem; font-weight:600; border-radius:7px; padding:8px 22px; margin-bottom:6px;">
+            Contact us to discuss
+          </span>
+        </div>
+        <ul style="text-align:left; margin:10px 0 0 0; padding-left:18px;">
+          <li>✔ Tailored support for your business</li>
+          <li>✔ Flexible plans and response times</li>
+          <li>✔ Proactive maintenance and advice</li>
+        </ul>
       </div>
     </div>
     <div style="text-align:center; margin-top:32px;">
