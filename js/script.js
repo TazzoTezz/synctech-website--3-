@@ -1,16 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('.nav');
+  const body = document.body;
 
-  // Robust burger menu logic
+  // --- Burger Menu Logic ---
   if (toggle && nav) {
     // Toggle menu on burger click
     toggle.addEventListener('click', function (e) {
       e.stopPropagation();
       const isOpen = nav.classList.toggle('show');
       toggle.classList.toggle('active', isOpen);
-      // Prevent body scroll when menu is open (mobile UX)
-      document.body.style.overflow = isOpen ? 'hidden' : '';
+      body.classList.toggle('nav-open', isOpen);
     });
 
     // Close menu when a nav link is clicked (mobile UX)
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('click', () => {
         nav.classList.remove('show');
         toggle.classList.remove('active');
-        document.body.style.overflow = '';
+        body.classList.remove('nav-open');
       });
     });
 
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ) {
         nav.classList.remove('show');
         toggle.classList.remove('active');
-        document.body.style.overflow = '';
+        body.classList.remove('nav-open');
       }
     });
 
@@ -40,12 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'Escape' && nav.classList.contains('show')) {
         nav.classList.remove('show');
         toggle.classList.remove('active');
-        document.body.style.overflow = '';
+        body.classList.remove('nav-open');
       }
     });
   }
 
-  // Make logo always link to index (for all pages)
+  // --- Logo always links to index ---
   const logo = document.querySelector('.logo img');
   if (logo) {
     const parent = logo.parentElement;
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Fix for Remote Assistance button on Contact page
+  // --- Remote Assistance button fix ---
   const remoteBtn = document.querySelector('.btn-black[onclick*="quickassist"]');
   if (remoteBtn) {
     remoteBtn.addEventListener('click', function (e) {
