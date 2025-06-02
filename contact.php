@@ -2,7 +2,7 @@
 $sent = false;
 $error = false;
 $recaptcha_error = false;
-$webhook_url = 'https://discord.com/api/webhooks/1378918142654414960/1ORBYHklL9Ums6fQ4V3x5rKpp6btmgVbC2G2P1U1nMbP__3V-bbMI6UU-WoDq0c58Zt1'; // <-- Replace with your Discord webhook URL
+$webhook_url = 'https://discord.com/api/webhooks/1378918142654414960/1ORBYHklL9Ums6fQ4V3x5rKpp6btmgVbC2G2P1U1nMbP__3V-bbMI6UU-WoDq0c58Zt1';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $name = htmlspecialchars(trim($_POST['name'] ?? ''));
@@ -24,14 +24,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
       'method'  => 'POST',
       'content' => http_build_query($data),
+      'timeout' => 5
     ]
   ];
   $context  = stream_context_create($options);
-  $verify = file_get_contents($recaptcha_url, false, $context);
+  $verify = @file_get_contents($recaptcha_url, false, $context);
   $captcha_success = json_decode($verify);
 
   if ($name && $email && $message && !empty($captcha_success->success) && $captcha_success->success === true && $captcha_success->score >= 0.5) {
-    // Send to Discord webhook
     $discord_data = [
       "embeds" => [[
         "title" => "New Contact Form Submission",
@@ -83,15 +83,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" crossorigin="anonymous">
   <script src="https://www.google.com/recaptcha/api.js?render=6Lcp1lIrAAAAAJFnn57bf4cDDybUkVb0BDoHoMrD"></script>
   <script>
-    function onContactSubmit(e) {
-      e.preventDefault();
-      grecaptcha.ready(function() {
-        grecaptcha.execute('6Lcp1lIrAAAAAJFnn57bf4cDDybUkVb0BDoHoMrD', {action: 'contact'}).then(function(token) {
-          document.getElementById('recaptcha_token').value = token;
-          document.getElementById('contact-form').submit();
+    document.addEventListener('DOMContentLoaded', function() {
+      var form = document.getElementById('contact-form');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          grecaptcha.ready(function() {
+            grecaptcha.execute('6Lcp1lIrAAAAAJFnn57bf4cDDybUkVb0BDoHoMrD', {action: 'contact'}).then(function(token) {
+              document.getElementById('recaptcha_token').value = token;
+              form.submit();
+            });
+          });
         });
-      });
-    }
+      }
+    });
   </script>
 </head>
 <body>
@@ -118,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h2>Contact Sync Tech</h2>
     <div style="display: flex; flex-wrap: wrap; gap: 48px; justify-content: center;">
       <div style="flex:2; min-width:320px; max-width:480px; background:#181a1b; border-radius:18px; box-shadow:0 2px 18px rgba(0,255,206,0.07); padding:40px 28px;">
-        <form id="contact-form" method="POST" autocomplete="off" onsubmit="onContactSubmit(event);">
+        <form id="contact-form" method="POST" autocomplete="off">
           <div style="margin-bottom: 26px;">
             <label for="contact-name" style="font-weight:500; color:#00ffce; display:block; margin-bottom:6px;">
               <span style="margin-right:8px;">&#128100;</span> Name
