@@ -28,8 +28,7 @@
     </p>
     <div style="margin-bottom: 20px;">
       <code style="background:#181a1b; color:#00ffce; padding:8px 18px; border-radius:8px; font-size:1.08rem;">
-        Error: PAGE_NOT_FOUND<br>
-        at /404:1:1
+        Error: 404 PAGE_NOT_FOUND<br>
       </code>
     </div>
     <div style="margin: 30px 0;">
