@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SyncTech - Your Technology Partner</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+</head>
+<body>
+  <div class="header">
+    <div class="container">
+      <div class="logo">
+        <a href="index.html"><img src="images/logo.png" alt="SyncTech Logo"></a>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="mailto:help@synctech.co.nz" class="remote-link">Support</a>
+        <a href="https://portal.synctech.co.nz" class="helpdesk-link">Helpdesk</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-content">
+        <h1>Welcome to SyncTech</h1>
+        <p>Your partner in innovative technology solutions.</p>
+        <a href="#services" class="btn-primary">Discover Our Services</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <div class="features">
+    <div class="container">
+      <h2>Why Choose Us?</h2>
+      <div class="feature-list">
+        <div class="feature">
+          <img src="images/feature1.png" alt="Feature 1">
+          <h3>Expertise</h3>
+          <p>Our team consists of industry experts with years of experience.</p>
+        </div>
+        <div class="feature">
+          <img src="images/feature2.png" alt="Feature 2">
+          <h3>Quality</h3>
+          <p>We deliver top-notch quality in every project, guaranteed.</p>
+        </div>
+        <div class="feature">
+          <img src="images/feature3.png" alt="Feature 3">
+          <h3>Support</h3>
+          <p>24/7 support to assist you with any queries or issues.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <div class="contact">
+    <div class="container">
+      <h2>Get In Touch</h2>
+      <form id="book-form" action="mailto:help@synctech.co.nz" method="POST" enctype="text/plain" autocomplete="off">
+        <div class="form-group">
+          <input type="text" name="name" required placeholder=" " id="name">
+          <label for="name">Your Name</label>
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" required placeholder=" " id="email">
+          <label for="email">Your Email</label>
+        </div>
+        <div class="form-group">
+          <input type="tel" name="phone" required placeholder=" " id="phone">
+          <label for="phone">Your Phone</label>
+        </div>
+        <div class="form-group">
+          <textarea name="message" required placeholder=" " id="message"></textarea>
+          <label for="message">Your Message</label>
+        </div>
+        <div style="margin-bottom: 24px;">
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAABfuos2D1QOUdVwK"></div>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%; font-size:1.15rem;">Book Now</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="container">
+      <p>&copy; 2023 SyncTech. All rights reserved.</p>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
