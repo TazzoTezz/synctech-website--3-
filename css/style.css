@@ -188,6 +188,27 @@ a:hover { color: #00e6b8; }
 }
 .btn-primary:hover { background: #00e6b8; color: #121212; }
 
+/* New black button style */
+.btn-black {
+  background: #181a1b;
+  color: #00ffce;
+  border: 1.5px solid #00ffce;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 15px 36px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  display: inline-block;
+  box-shadow: 0 2px 12px rgba(0,255,206,0.10);
+  text-align: center;
+}
+.btn-black:hover {
+  background: #23272a;
+  color: #fff;
+  border: 1.5px solid #00ffce;
+}
+
 /* Features/Services Cards */
 .features, .feature-list {
   margin-top: 40px;
