@@ -1,20 +1,68 @@
 <?php
 $sent = false;
 $error = false;
+$recaptcha_error = false;
+$webhook_url = 'https://discord.com/api/webhooks/1378918142654414960/1ORBYHklL9Ums6fQ4V3x5rKpp6btmgVbC2G2P1U1nMbP__3V-bbMI6UU-WoDq0c58Zt1'; // <-- Replace with your Discord webhook URL
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $name = htmlspecialchars(trim($_POST['name'] ?? ''));
   $email = htmlspecialchars(trim($_POST['email'] ?? ''));
   $phone = htmlspecialchars(trim($_POST['phone'] ?? ''));
   $message = htmlspecialchars(trim($_POST['message'] ?? ''));
-  if ($name && $email && $message) {
-    $to = 'help@synctech.co.nz';
-    $subject = "Contact Form from $name";
-    $body = "Name: $name\nEmail: $email\nPhone: $phone\n\nMessage:\n$message";
-    $headers = "From: $email\r\nReply-To: $email\r\n";
-    $sent = mail($to, $subject, $body, $headers);
+  $recaptcha_token = $_POST['recaptcha_token'] ?? '';
+
+  // Verify reCAPTCHA v3
+  $secret = '6Lcp1lIrAAAAAOYCLHeRKW20zjDoT8bJK-E9SkIa';
+  $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
+  $data = [
+    'secret' => $secret,
+    'response' => $recaptcha_token,
+    'remoteip' => $_SERVER['REMOTE_ADDR']
+  ];
+  $options = [
+    'http' => [
+      'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+      'method'  => 'POST',
+      'content' => http_build_query($data),
+    ]
+  ];
+  $context  = stream_context_create($options);
+  $verify = file_get_contents($recaptcha_url, false, $context);
+  $captcha_success = json_decode($verify);
+
+  if ($name && $email && $message && !empty($captcha_success->success) && $captcha_success->success === true && $captcha_success->score >= 0.5) {
+    // Send to Discord webhook
+    $discord_data = [
+      "embeds" => [[
+        "title" => "New Contact Form Submission",
+        "color" => 65280,
+        "fields" => [
+          ["name" => "Name", "value" => $name, "inline" => true],
+          ["name" => "Email", "value" => $email, "inline" => true],
+          ["name" => "Phone", "value" => $phone ?: 'N/A', "inline" => true],
+          ["name" => "Message", "value" => $message, "inline" => false]
+        ],
+        "footer" => ["text" => "Sync Tech Contact Form"]
+      ]]
+    ];
+    $discord_options = [
+      'http' => [
+        'header'  => "Content-Type: application/json\r\n",
+        'method'  => 'POST',
+        'content' => json_encode($discord_data),
+        'timeout' => 5
+      ]
+    ];
+    $discord_context = stream_context_create($discord_options);
+    $discord_result = @file_get_contents($webhook_url, false, $discord_context);
+    $sent = $discord_result !== false;
     if (!$sent) $error = true;
   } else {
-    $error = true;
+    if (empty($captcha_success->success) || $captcha_success->success !== true || $captcha_success->score < 0.5) {
+      $recaptcha_error = true;
+    } else {
+      $error = true;
+    }
   }
 }
 ?>
@@ -33,6 +81,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" crossorigin="anonymous">
+  <script src="https://www.google.com/recaptcha/api.js?render=6Lcp1lIrAAAAAJFnn57bf4cDDybUkVb0BDoHoMrD"></script>
+  <script>
+    function onContactSubmit(e) {
+      e.preventDefault();
+      grecaptcha.ready(function() {
+        grecaptcha.execute('6Lcp1lIrAAAAAJFnn57bf4cDDybUkVb0BDoHoMrD', {action: 'contact'}).then(function(token) {
+          document.getElementById('recaptcha_token').value = token;
+          document.getElementById('contact-form').submit();
+        });
+      });
+    }
+  </script>
 </head>
 <body>
   <header class="header">
@@ -56,18 +116,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   <main class="container" style="padding: 60px 0;">
     <h2>Contact Sync Tech</h2>
-    <?php if ($sent): ?>
-      <div style="background:#181a1b; color:#00ffce; border-radius:8px; padding:24px; text-align:center; margin-bottom:32px;">
-        <b>Thank you!</b> Your message has been sent. We'll be in touch soon.
-      </div>
-    <?php elseif ($error && $_SERVER['REQUEST_METHOD'] === 'POST'): ?>
-      <div style="background:#181a1b; color:#ff5c5c; border-radius:8px; padding:24px; text-align:center; margin-bottom:32px;">
-        Sorry, there was a problem sending your message. Please try again or email <a href="mailto:help@synctech.co.nz" style="color:#00ffce;">help@synctech.co.nz</a>.
-      </div>
-    <?php endif; ?>
     <div style="display: flex; flex-wrap: wrap; gap: 48px; justify-content: center;">
       <div style="flex:2; min-width:320px; max-width:480px; background:#181a1b; border-radius:18px; box-shadow:0 2px 18px rgba(0,255,206,0.07); padding:40px 28px;">
-        <form id="contact-form" action="contact.php" method="POST" enctype="text/plain" autocomplete="off" onsubmit="return validateContactForm();">
+        <form id="contact-form" method="POST" autocomplete="off" onsubmit="onContactSubmit(event);">
           <div style="margin-bottom: 26px;">
             <label for="contact-name" style="font-weight:500; color:#00ffce; display:block; margin-bottom:6px;">
               <span style="margin-right:8px;">&#128100;</span> Name
@@ -92,11 +143,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </label>
             <textarea id="contact-message" name="message" rows="5" required style="width:100%; padding:16px; border-radius:8px; border:1.5px solid #23272a; background:#23272a; color:#e0e0e0; font-size:1rem; resize:vertical;"></textarea>
           </div>
-          <div style="margin-bottom: 24px;">
-            <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
-          </div>
+          <input type="hidden" name="recaptcha_token" id="recaptcha_token">
           <button type="submit" class="btn-primary" style="width:100%; font-size:1.15rem;">Send Message</button>
         </form>
+        <?php if ($sent): ?>
+          <div style="background:#181a1b; color:#00ffce; border-radius:8px; padding:24px; text-align:center; margin-top:24px;">
+            <b>Thank you!</b> One of our Wellington based team will be in contact shortly.
+          </div>
+        <?php elseif ($recaptcha_error): ?>
+          <div style="background:#181a1b; color:#ff5c5c; border-radius:8px; padding:24px; text-align:center; margin-top:24px;">
+            Please complete the form again. reCAPTCHA verification failed.
+          </div>
+        <?php elseif ($error && $_SERVER['REQUEST_METHOD'] === 'POST'): ?>
+          <div style="background:#181a1b; color:#ff5c5c; border-radius:8px; padding:24px; text-align:center; margin-top:24px;">
+            Sorry, there was a problem sending your message. Please try again or email <a href="mailto:help@synctech.co.nz" style="color:#00ffce;">help@synctech.co.nz</a>.
+          </div>
+        <?php endif; ?>
       </div>
       <div style="flex:1; min-width:260px; max-width:340px; background:#161a1d; border-radius:14px; box-shadow:0 2px 12px rgba(0,255,206,0.04); padding:36px 22px; color:#b0b0b0; display:flex; flex-direction:column; justify-content:center;">
         <h3 style="color:#00ffce; margin-bottom:18px;">Contact Details</h3>
