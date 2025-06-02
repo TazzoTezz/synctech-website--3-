@@ -52,15 +52,15 @@
       <!-- New Facebook testimonials -->
       <div class="feature">
         <h3>⭐⭐⭐⭐⭐</h3>
-        <p>“Really quick service, he was a lovely guy and fixed the issue right away 🙂 I would highly recommend his service. Really impressed 🙂”<br><span style="color:#00ffce;">– Deahn Bradley</span></p>
+        <p>“Really quick service, he was a lovely guy and fixed the issue right away 🙂 I would highly recommend his service. Really impressed 🙂”<br><span style="color:#00ffce;">– Deahn B.</span></p>
       </div>
       <div class="feature">
         <h3>⭐⭐⭐⭐⭐</h3>
-        <p>“Easy, Affordable and genuinely a really good experience. Would definitely come back”<br><span style="color:#00ffce;">– Curtis Hannam</span></p>
+        <p>“Easy, Affordable and genuinely a really good experience. Would definitely come back”<br><span style="color:#00ffce;">– Curtis H.</span></p>
       </div>
       <div class="feature">
         <h3>⭐⭐⭐⭐⭐</h3>
-        <p>“Brandon was amazing; fast and great service. Completed the task of data removal. Thanks and will use again”<br><span style="color:#00ffce;">– Pearl Davies</span></p>
+        <p>“Brandon was amazing; fast and great service. Completed the task of data removal. Thanks and will use again”<br><span style="color:#00ffce;">– Pearl D.</span></p>
       </div>
       <!-- Additional Facebook reviews -->
       <div class="feature">
