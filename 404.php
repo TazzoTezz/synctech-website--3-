@@ -41,9 +41,6 @@
     <div style="margin-top:32px; color:#888; font-size:1.05rem;">
       <span style="font-size:1.5rem;">&#128187;</span> <em>Sync Tech – Your friendly IT support team</em>
     </div>
-    <div style="margin-top:32px; color:#00ffce; font-size:1.2rem;">
-      <span style="font-size:2rem;">&#128062;</span> <b>404? More like 4-oh-no!</b>
-    </div>
   </div>
 </body>
 </html>
