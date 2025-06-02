@@ -2,8 +2,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('.nav');
   if (toggle && nav) {
-    toggle.addEventListener('click', () => {
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       nav.classList.toggle('show');
+    });
+
+    // Close nav when clicking outside on mobile
+    document.addEventListener('click', (e) => {
+      if (nav.classList.contains('show') && !nav.contains(e.target) && !toggle.contains(e.target)) {
+        nav.classList.remove('show');
+      }
     });
   }
 
