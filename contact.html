@@ -41,7 +41,7 @@
     </p>
     <div style="display: flex; flex-wrap: wrap; gap: 48px; justify-content: center;">
       <div style="flex:2; min-width:320px; max-width:480px; background:#181a1b; border-radius:18px; box-shadow:0 2px 18px rgba(0,255,206,0.07); padding:40px 28px;">
-        <form method="POST" action="https://formspree.io/f/xoqglzwl" autocomplete="off" rel="noopener noreferrer">
+        <form id="contact-form" action="mailto:help@synctech.co.nz" method="POST" enctype="text/plain" autocomplete="off" onsubmit="return validateContactForm();">
           <div style="margin-bottom: 26px;">
             <label for="contact-name" style="font-weight:500; color:#00ffce; display:block; margin-bottom:6px;">
               <span style="margin-right:8px;">&#128100;</span> Name
@@ -65,6 +65,9 @@
               <span style="margin-right:8px;">&#9998;</span> Your Message
             </label>
             <textarea id="contact-message" name="message" rows="5" required style="width:100%; padding:16px; border-radius:8px; border:1.5px solid #23272a; background:#23272a; color:#e0e0e0; font-size:1rem; resize:vertical;"></textarea>
+          </div>
+          <div style="margin-bottom: 24px;">
+            <div class="g-recaptcha" data-sitekey="YOUR_RECAPTCHA_SITE_KEY"></div>
           </div>
           <button type="submit" class="btn-primary" style="width:100%; font-size:1.15rem;">Send Message</button>
         </form>
@@ -98,5 +101,16 @@
   </footer>
 
   <script src="js/script.js" defer></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script>
+    function validateContactForm() {
+      var response = grecaptcha.getResponse();
+      if (response.length === 0) {
+        alert('Please complete the CAPTCHA to submit the form.');
+        return false;
+      }
+      return true;
+    }
+  </script>
 </body>
 </html>
