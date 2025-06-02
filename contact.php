@@ -99,79 +99,62 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
   </header>
 
+  <?php
+  // Output the form and sidebar in a side-by-side flex container
+  echo <<<HTML
   <main class="container" style="padding: 60px 0;">
     <h2>Contact Sync Tech</h2>
-
-    <?php if (!empty($sent)): ?>
-      <div style="background:#181a1b; color:#00ffce; border-radius:8px; padding:24px; text-align:center; margin-bottom:32px;">
-        <b>Thank you!</b> One of our Wellington based team will be in contact shortly.
+    <p style="text-align: center; max-width: 700px; margin: 10px auto 40px;">
+      Have a question or need help? Fill out the form below and our friendly team will get back to you fast.
+    </p>
+    <div class="form-flex" style="display: flex; flex-wrap: nowrap; gap: 48px; justify-content: center; align-items: flex-start;">
+      <div style="flex:2; min-width:320px; max-width:480px; background:#181a1b; border-radius:18px; box-shadow:0 2px 18px rgba(0,255,206,0.07); padding:40px 28px;">
+        <form id="contact-form" action="mailto:help@synctech.co.nz" method="POST" enctype="text/plain" autocomplete="off">
+          <div class="form-group">
+            <input type="text" name="name" required placeholder=" " />
+            <label>Name</label>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" required placeholder=" " />
+            <label>Email</label>
+          </div>
+          <div class="form-group">
+            <input type="tel" name="phone" placeholder=" " />
+            <label>Phone (optional)</label>
+          </div>
+          <div class="form-group">
+            <textarea name="message" rows="4" required placeholder=" "></textarea>
+            <label>Your Message</label>
+          </div>
+          <div style="margin-bottom: 24px;">
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAABfuos2D1QOUdVwK"></div>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%; font-size:1.15rem;">Send Message</button>
+        </form>
       </div>
-    <?php elseif (!empty($recaptcha_error)): ?>
-      <div style="background:#181a1b; color:#ff5c5c; border-radius:8px; padding:24px; text-align:center; margin-bottom:32px;">
-        Please complete the reCAPTCHA to submit the form.
-      </div>
-    <?php elseif (!empty($error)): ?>
-      <div style="background:#181a1b; color:#ff5c5c; border-radius:8px; padding:24px; text-align:center; margin-bottom:32px;">
-        Sorry, there was a problem sending your message. Please try again or email <a href="mailto:help@synctech.co.nz" style="color:#00ffce;">help@synctech.co.nz</a>.
-      </div>
-    <?php endif; ?>
-
-    <form id="contact-form" method="POST" autocomplete="off">
-      <div style="margin-bottom: 26px;">
-        <label for="contact-name" style="font-weight:500; color:#00ffce; display:block; margin-bottom:6px;">
-          <span style="margin-right:8px;">&#128100;</span> Name
-        </label>
-        <input type="text" id="contact-name" name="name" required style="width:100%; padding:16px; border-radius:8px; border:1.5px solid #23272a; background:#23272a; color:#e0e0e0; font-size:1rem;">
-      </div>
-      <div style="margin-bottom: 26px;">
-        <label for="contact-email" style="font-weight:500; color:#00ffce; display:block; margin-bottom:6px;">
-          <span style="margin-right:8px;">&#9993;</span> Email
-        </label>
-        <input type="email" id="contact-email" name="email" required style="width:100%; padding:16px; border-radius:8px; border:1.5px solid #23272a; background:#23272a; color:#e0e0e0; font-size:1rem;">
-      </div>
-      <div style="margin-bottom: 26px;">
-        <label for="contact-phone" style="font-weight:500; color:#00ffce; display:block; margin-bottom:6px;">
-          <span style="margin-right:8px;">&#128222;</span> Phone
-        </label>
-        <input type="tel" id="contact-phone" name="phone" style="width:100%; padding:16px; border-radius:8px; border:1.5px solid #23272a; background:#23272a; color:#e0e0e0; font-size:1rem;">
-      </div>
-      <div style="margin-bottom: 32px;">
-        <label for="contact-message" style="font-weight:500; color:#00ffce; display:block; margin-bottom:6px;">
-          <span style="margin-right:8px;">&#9998;</span> Your Message
-        </label>
-        <textarea id="contact-message" name="message" rows="5" required style="width:100%; padding:16px; border-radius:8px; border:1.5px solid #23272a; background:#23272a; color:#e0e0e0; font-size:1rem; resize:vertical;"></textarea>
-      </div>
-      <div style="margin-bottom: 24px; display:flex; justify-content:center;">
-        <div class="g-recaptcha" data-sitekey="6Lcp1lIrAAAAAJFnn57bf4cDDybUkVb0BDoHoMrD"></div>
-      </div>
-      <button type="submit" class="btn-primary" style="width:100%; font-size:1.15rem;">Send Message</button>
-    </form>
-
-    <?php
-    // Output the sidebar info after the form (no HTML changes needed in the HTML file)
-    echo <<<HTML
-    <div class="sidebar-card" style="flex:1; min-width:260px; max-width:340px; margin:0;">
+      <div class="sidebar-card" style="flex:1; min-width:260px; max-width:340px; margin:0;">
         <h3 style="color:#00ffce; margin-bottom:18px;">Contact Details</h3>
         <div style="margin-bottom:18px;">
-            <div style="margin-bottom:10px;"><span style="color:#00ffce;">&#128222;</span> <a href="tel:0800796233" style="color:#00ffce; font-weight:600;">0800 SYNCED <span style="font-size:0.95em;">(0800 796 233)</span></a></div>
-            <div style="margin-bottom:10px;"><span style="color:#00ffce;">&#9993;</span> <a href="mailto:help@synctech.co.nz" style="color:#00ffce;">help@synctech.co.nz</a></div>
-            <div><span style="color:#00ffce;">&#127968;</span> Mobile & Remote Service</div>
+          <div style="margin-bottom:10px;"><span style="color:#00ffce;">&#128222;</span> <a href="tel:0800796233" style="color:#00ffce; font-weight:600;">0800 SYNCED <span style="font-size:0.95em;">(0800 796 233)</span></a></div>
+          <div style="margin-bottom:10px;"><span style="color:#00ffce;">&#9993;</span> <a href="mailto:help@synctech.co.nz" style="color:#00ffce;">help@synctech.co.nz</a></div>
+          <div><span style="color:#00ffce;">&#127968;</span> Mobile & Remote Service</div>
         </div>
         <h3 style="color:#00ffce; margin:24px 0 12px 0;">Why Choose Sync Tech?</h3>
         <div style="text-align:center; margin-bottom:14px;">
-            <a onclick="alert('To get support:\\n\\n1. Press Windows + R\\n2. Type quickassist\\n3. Press Enter\\n4. Follow the on-screen instructions.')" class="btn-black" tabindex="0" style="display:inline-block; cursor:pointer; font-size:1.01rem; padding:8px 18px; margin-bottom:8px;">&#128187; Remote Assistance</a>
+          <a onclick="alert('To get support:\\n\\n1. Press Windows + R\\n2. Type quickassist\\n3. Press Enter\\n4. Follow the on-screen instructions.')" class="btn-black" tabindex="0" style="display:inline-block; cursor:pointer; font-size:1.01rem; padding:8px 18px; margin-bottom:8px;">&#128187; Remote Assistance</a>
         </div>
         <ul>
-            <li>✔ We come to you — at home or your workplace (Wellington)</li>
-            <li>✔ Remote support available in Wellington</li>
-            <li>✔ No obligation & no fix, no fee</li>
-            <li>✔ Friendly, fast, and experienced techs</li>
-            <li>✔ Same-day appointments available</li>
+          <li>✔ We come to you — at home or your workplace (Wellington)</li>
+          <li>✔ Remote support available in Wellington</li>
+          <li>✔ No obligation & no fix, no fee</li>
+          <li>✔ Friendly, fast, and experienced techs</li>
+          <li>✔ Same-day appointments available</li>
         </ul>
+      </div>
     </div>
-    HTML;
-    ?>
   </main>
+  HTML;
+  ?>
 
   <footer class="footer">
     <div class="container">

@@ -102,81 +102,58 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
   </header>
 
+  <?php
+  // Output the form and sidebar in a side-by-side flex container
+  echo <<<HTML
   <main class="container" style="padding: 60px 0;">
     <h2>Book a Technician</h2>
-
-    <?php if (!empty($sent)): ?>
-      <div style="background:#181a1b; color:#00ffce; border-radius:8px; padding:24px; text-align:center; margin-bottom:32px;">
-        <b>Thank you!</b> One of our Wellington based team will be in contact shortly.
+    <p style="text-align: center; max-width: 700px; margin: 0 auto 40px;">
+      Let us know what issue you're having, and we'll schedule a mobile visit or remote session as soon as possible.
+    </p>
+    <div class="form-flex" style="display: flex; flex-wrap: nowrap; gap: 48px; justify-content: center; align-items: flex-start;">
+      <div style="flex:2; min-width:320px; max-width:480px; background:#181a1b; border-radius:18px; box-shadow:0 2px 18px rgba(0,255,206,0.07); padding:40px 28px;">
+        <form id="book-form" action="mailto:help@synctech.co.nz" method="POST" enctype="text/plain" autocomplete="off">
+          <div class="form-group">
+            <input type="text" name="name" required placeholder=" " />
+            <label>Name</label>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" required placeholder=" " />
+            <label>Email</label>
+          </div>
+          <div class="form-group">
+            <input type="tel" name="phone" required placeholder=" " />
+            <label>Phone</label>
+          </div>
+          <div class="form-group">
+            <textarea name="issue" rows="4" required placeholder=" "></textarea>
+            <label>Describe your issue</label>
+          </div>
+          <div style="margin-bottom: 24px;">
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAABfuos2D1QOUdVwK"></div>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%; font-size:1.15rem;">Book Now</button>
+        </form>
       </div>
-    <?php elseif (!empty($recaptcha_error)): ?>
-      <div style="background:#181a1b; color:#ff5c5c; border-radius:8px; padding:24px; text-align:center; margin-bottom:32px;">
-        Please complete the reCAPTCHA to submit the form.
-      </div>
-    <?php elseif (!empty($error)): ?>
-      <div style="background:#181a1b; color:#ff5c5c; border-radius:8px; padding:24px; text-align:center; margin-bottom:32px;">
-        Sorry, there was a problem sending your request. Please try again or email <a href="mailto:help@synctech.co.nz" style="color:#00ffce;">help@synctech.co.nz</a>.
-      </div>
-    <?php endif; ?>
-
-    <form id="book-form" method="POST" autocomplete="off">
-      <div style="margin-bottom: 26px;">
-        <label for="book-name" style="font-weight:500; color:#00ffce; display:block; margin-bottom:6px;">
-          <span style="margin-right:8px;">&#128100;</span> Name
-        </label>
-        <input type="text" id="book-name" name="name" required style="width:100%; padding:16px; border-radius:8px; border:1.5px solid #23272a; background:#23272a; color:#e0e0e0; font-size:1rem;">
-      </div>
-      <div style="margin-bottom: 26px;">
-        <label for="book-email" style="font-weight:500; color:#00ffce; display:block; margin-bottom:6px;">
-          <span style="margin-right:8px;">&#9993;</span> Email
-        </label>
-        <input type="email" id="book-email" name="email" required style="width:100%; padding:16px; border-radius:8px; border:1.5px solid #23272a; background:#23272a; color:#e0e0e0; font-size:1rem;">
-      </div>
-      <div style="margin-bottom: 26px;">
-        <label for="book-phone" style="font-weight:500; color:#00ffce; display:block; margin-bottom:6px;">
-          <span style="margin-right:8px;">&#128222;</span> Phone
-        </label>
-        <input type="tel" id="book-phone" name="phone" style="width:100%; padding:16px; border-radius:8px; border:1.5px solid #23272a; background:#23272a; color:#e0e0e0; font-size:1rem;">
-      </div>
-      <div style="margin-bottom: 26px;">
-        <label for="book-issue" style="font-weight:500; color:#00ffce; display:block; margin-bottom:6px;">
-          <span style="margin-right:8px;">&#9881;</span> What do you need help with?
-        </label>
-        <textarea id="book-issue" name="issue" rows="5" required style="width:100%; padding:16px; border-radius:8px; border:1.5px solid #23272a; background:#23272a; color:#e0e0e0; font-size:1rem; resize:vertical;"></textarea>
-      </div>
-      <div style="margin-bottom: 32px;">
-        <label for="book-datetime" style="font-weight:500; color:#00ffce; display:block; margin-bottom:6px;">
-          <span style="margin-right:8px;">&#128197;</span> Preferred Date & Time
-        </label>
-        <input type="datetime-local" id="book-datetime" name="datetime" style="width:100%; padding:16px; border-radius:8px; border:1.5px solid #23272a; background:#23272a; color:#e0e0e0; font-size:1rem;">
-      </div>
-      <div style="margin-bottom: 24px; display:flex; justify-content:center;">
-        <div class="g-recaptcha" data-sitekey="6Lcp1lIrAAAAAJFnn57bf4cDDybUkVb0BDoHoMrD"></div>
-      </div>
-      <button type="submit" class="btn-primary" style="width:100%; font-size:1.15rem;">Book Now</button>
-    </form>
-
-    <?php
-    // Output the sidebar info after the form (no HTML changes needed in the HTML file)
-    echo <<<HTML
-    <div class="sidebar-card" style="flex:1; min-width:260px; max-width:340px; margin:0;">
+      <div class="sidebar-card" style="flex:1; min-width:260px; max-width:340px; margin:0;">
         <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=400&q=80" alt="IT Technician with PC" style="width:100%; border-radius:10px; margin-bottom:18px; object-fit:cover; height:120px;">
         <h3 style="color:#00ffce; margin-bottom:18px;">How Booking Works</h3>
         <ul>
-            <li>✔ We confirm your booking by phone or email</li>
-            <li>✔ Choose mobile or remote support</li>
-            <li>✔ No fix, no fee guarantee</li>
-            <li>✔ Same-day appointments often available</li>
-            <li>✔ Friendly, qualified technicians</li>
+          <li>✔ We confirm your booking by phone or email</li>
+          <li>✔ Choose mobile or remote support</li>
+          <li>✔ No fix, no fee guarantee</li>
+          <li>✔ Same-day appointments often available</li>
+          <li>✔ Friendly, qualified technicians</li>
         </ul>
         <div style="margin-top:18px;">
-            <span style="color:#00ffce;">&#128222;</span> <b>Need urgent help?</b><br>
-            <a href="tel:0800796233" style="color:#00ffce; font-weight:600;">0800 SYNCED <span style="font-size:0.95em;">(0800 796 233)</span></a>
+          <span style="color:#00ffce;">&#128222;</span> <b>Need urgent help?</b><br>
+          <a href="tel:0800796233" style="color:#00ffce; font-weight:600;">0800 SYNCED <span style="font-size:0.95em;">(0800 796 233)</span></a>
         </div>
+      </div>
     </div>
-    HTML;
-    ?>
   </main>
+  HTML;
+  ?>
 
   <footer class="footer">
     <div class="container">
