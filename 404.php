@@ -22,13 +22,13 @@
       </div>
       <div class="nav-toggle"><span></span><span></span><span></span></div>
       <nav class="nav">
-        <a href="index">Home</a>
-        <a href="services">Services</a>
-        <a href="about">About</a>
-        <a href="book">Book</a>
-        <a href="plans">Plans</a>
-        <a href="testimonials">Testimonials</a>
-        <a href="contact">Contact</a>
+        <a href="index.php">Home</a>
+        <a href="services.php">Services</a>
+        <a href="about.php">About</a>
+        <a href="book.php">Book</a>
+        <a href="plans.php">Plans</a>
+        <a href="testimonials.php">Testimonials</a>
+        <a href="contact.php">Contact</a>
         <a href="https://helpdesk.synctech.co.nz" target="_blank" rel="noopener" class="btn-black" tabindex="0" style="margin-left:10px; font-size:1.01rem; padding:8px 18px;">Helpdesk Login</a>
       </nav>
     </div>
@@ -42,15 +42,15 @@
       <span style="font-size:2.5rem;">&#128421;&#65039;</span><br>
       Uh oh! This page is missing, unplugged, or just having a bad day.<br>
       <span style="color:#00ffce;">IT Support Tip:</span> Try turning it off and on again... or<br>
-      <span style="color:#00ffce;">Need help?</span> <a href="contact" style="color:#00ffce; text-decoration:underline;">Contact Sync Tech Support</a> and we'll get you back on track!
+      <span style="color:#00ffce;">Need help?</span> <a href="contact.php" style="color:#00ffce; text-decoration:underline;">Contact Sync Tech Support</a> and we'll get you back on track!
     </p>
     <div style="margin-bottom: 20px;">
       <code style="background:#181a1b; color:#00ffce; padding:8px 18px; border-radius:8px; font-size:1.08rem;">
         Error: PAGE_NOT_FOUND<br>
-        at /404:1:1
+        at /404.php:1:1
       </code>
     </div>
-    <a href="index" class="btn-primary" style="margin-top: 20px; display: inline-block;">Go to Homepage</a>
+    <a href="index.php" class="btn-primary" style="margin-top: 20px; display: inline-block;">Go to Homepage</a>
     <div style="margin-top:32px; color:#888; font-size:1.05rem;">
       <span style="font-size:1.5rem;">&#128187;</span> <em>Sync Tech – Your friendly IT support team</em>
     </div>

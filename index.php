@@ -26,13 +26,13 @@
       </div>
       <div class="nav-toggle"><span></span><span></span><span></span></div>
       <nav class="nav">
-        <a href="index" class="active">Home</a>
-        <a href="services">Services</a>
-        <a href="about">About</a>
-        <a href="book">Book</a>
-        <a href="plans">Plans</a>
-        <a href="testimonials">Testimonials</a>
-        <a href="contact">Contact</a>
+        <a href="index.php" class="active">Home</a>
+        <a href="services.php">Services</a>
+        <a href="about.php">About</a>
+        <a href="book.php">Book</a>
+        <a href="plans.php">Plans</a>
+        <a href="testimonials.php">Testimonials</a>
+        <a href="contact.php">Contact</a>
         <a href="https://helpdesk.synctech.co.nz" target="_blank" rel="noopener" class="btn-black" tabindex="0" style="margin-left:10px; font-size:1.01rem; padding:8px 18px;">Helpdesk Login</a>
       </nav>
     </div>
@@ -43,7 +43,7 @@
     <div class="hero-content">
       <h1>Mobile & Remote IT Support</h1>
       <p>We fix your tech problems fast — no fix, no fee. Serving homes & small businesses with friendly, expert support.</p>
-      <a href="book" class="btn-primary">Book a Technician</a>
+      <a href="book.php" class="btn-primary">Book a Technician</a>
     </div>
   </section>
 
@@ -94,7 +94,7 @@
       <li>✔ No Fix, No Fee Guarantee</li>
       <li>✔ Fast, Friendly Technicians</li>
     </ul>
-    <a href="services" class="btn-primary" style="margin-top: 30px; display: inline-block;">Explore Our Services</a>
+    <a href="services.php" class="btn-primary" style="margin-top: 30px; display: inline-block;">Explore Our Services</a>
   </section>
 
   <footer class="footer">

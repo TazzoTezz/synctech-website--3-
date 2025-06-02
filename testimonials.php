@@ -22,13 +22,13 @@
       </div>
       <div class="nav-toggle"><span></span><span></span><span></span></div>
       <nav class="nav">
-        <a href="index">Home</a>
-        <a href="services">Services</a>
-        <a href="about">About</a>
-        <a href="book">Book</a>
-        <a href="plans">Plans</a>
-        <a href="testimonials" class="active">Testimonials</a>
-        <a href="contact">Contact</a>
+        <a href="index.php">Home</a>
+        <a href="services.php">Services</a>
+        <a href="about.php">About</a>
+        <a href="book.php">Book</a>
+        <a href="plans.php">Plans</a>
+        <a href="testimonials.php" class="active">Testimonials</a>
+        <a href="contact.php">Contact</a>
         <a href="https://helpdesk.synctech.co.nz" target="_blank" rel="noopener" class="btn-black" tabindex="0" style="margin-left:10px; font-size:1.01rem; padding:8px 18px;">Helpdesk Login</a>
       </nav>
     </div>

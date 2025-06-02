@@ -1,3 +1,23 @@
+<?php
+$sent = false;
+$error = false;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $name = htmlspecialchars(trim($_POST['name'] ?? ''));
+  $email = htmlspecialchars(trim($_POST['email'] ?? ''));
+  $phone = htmlspecialchars(trim($_POST['phone'] ?? ''));
+  $message = htmlspecialchars(trim($_POST['message'] ?? ''));
+  if ($name && $email && $message) {
+    $to = 'help@synctech.co.nz';
+    $subject = "Contact Form from $name";
+    $body = "Name: $name\nEmail: $email\nPhone: $phone\n\nMessage:\n$message";
+    $headers = "From: $email\r\nReply-To: $email\r\n";
+    $sent = mail($to, $subject, $body, $headers);
+    if (!$sent) $error = true;
+  } else {
+    $error = true;
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,13 +42,13 @@
       </div>
       <div class="nav-toggle"><span></span><span></span><span></span></div>
       <nav class="nav">
-        <a href="index">Home</a>
-        <a href="services">Services</a>
-        <a href="about">About</a>
-        <a href="book">Book</a>
-        <a href="plans">Plans</a>
-        <a href="testimonials">Testimonials</a>
-        <a href="contact" class="active">Contact</a>
+        <a href="index.php">Home</a>
+        <a href="services.php">Services</a>
+        <a href="about.php">About</a>
+        <a href="book.php">Book</a>
+        <a href="plans.php">Plans</a>
+        <a href="testimonials.php">Testimonials</a>
+        <a href="contact.php" class="active">Contact</a>
         <a href="https://helpdesk.synctech.co.nz" target="_blank" rel="noopener" class="btn-black" tabindex="0" style="margin-left:10px; font-size:1.01rem; padding:8px 18px;">Helpdesk Login</a>
       </nav>
     </div>
@@ -36,12 +56,18 @@
 
   <main class="container" style="padding: 60px 0;">
     <h2>Contact Sync Tech</h2>
-    <p style="text-align: center; max-width: 700px; margin: 10px auto 40px;">
-      Have a question or need help? Fill out the form below and our friendly team will get back to you fast.
-    </p>
+    <?php if ($sent): ?>
+      <div style="background:#181a1b; color:#00ffce; border-radius:8px; padding:24px; text-align:center; margin-bottom:32px;">
+        <b>Thank you!</b> Your message has been sent. We'll be in touch soon.
+      </div>
+    <?php elseif ($error && $_SERVER['REQUEST_METHOD'] === 'POST'): ?>
+      <div style="background:#181a1b; color:#ff5c5c; border-radius:8px; padding:24px; text-align:center; margin-bottom:32px;">
+        Sorry, there was a problem sending your message. Please try again or email <a href="mailto:help@synctech.co.nz" style="color:#00ffce;">help@synctech.co.nz</a>.
+      </div>
+    <?php endif; ?>
     <div style="display: flex; flex-wrap: wrap; gap: 48px; justify-content: center;">
       <div style="flex:2; min-width:320px; max-width:480px; background:#181a1b; border-radius:18px; box-shadow:0 2px 18px rgba(0,255,206,0.07); padding:40px 28px;">
-        <form id="contact-form" action="mailto:help@synctech.co.nz" method="POST" enctype="text/plain" autocomplete="off" onsubmit="return validateContactForm();">
+        <form id="contact-form" action="contact.php" method="POST" enctype="text/plain" autocomplete="off" onsubmit="return validateContactForm();">
           <div style="margin-bottom: 26px;">
             <label for="contact-name" style="font-weight:500; color:#00ffce; display:block; margin-bottom:6px;">
               <span style="margin-right:8px;">&#128100;</span> Name
