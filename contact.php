@@ -1,7 +1,6 @@
 <?php
 $sent = false;
 $error = false;
-$recaptcha_error = false;
 $webhook_url = 'https://discord.com/api/webhooks/1378918142654414960/1ORBYHklL9Ums6fQ4V3x5rKpp6btmgVbC2G2P1U1nMbP__3V-bbMI6UU-WoDq0c58Zt1';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -9,29 +8,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $email = htmlspecialchars(trim($_POST['email'] ?? ''));
   $phone = htmlspecialchars(trim($_POST['phone'] ?? ''));
   $message = htmlspecialchars(trim($_POST['message'] ?? ''));
-  $recaptcha_response = $_POST['g-recaptcha-response'] ?? '';
 
-  // Verify reCAPTCHA v2
-  $secret = '6Lcp1lIrAAAAAOYCLHeRKW20zjDoT8bJK-E9SkIa';
-  $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
-  $data = [
-    'secret' => $secret,
-    'response' => $recaptcha_response,
-    'remoteip' => $_SERVER['REMOTE_ADDR']
-  ];
-  $options = [
-    'http' => [
-      'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-      'method'  => 'POST',
-      'content' => http_build_query($data),
-      'timeout' => 5
-    ]
-  ];
-  $context  = stream_context_create($options);
-  $verify = @file_get_contents($recaptcha_url, false, $context);
-  $captcha_success = json_decode($verify);
-
-  if ($name && $email && $message && !empty($captcha_success->success) && $captcha_success->success === true) {
+  if ($name && $email && $message) {
     $discord_data = [
       "embeds" => [[
         "title" => "New Contact Form Submission",
@@ -58,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sent = $discord_result !== false;
     if (!$sent) $error = true;
   } else {
-    $recaptcha_error = true;
+    $error = true;
   }
 }
 ?>
@@ -99,17 +77,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
   </header>
 
-  <?php
-  // Output the form and sidebar in a side-by-side flex container
-  echo <<<HTML
   <main class="container" style="padding: 60px 0;">
     <h2>Contact Sync Tech</h2>
-    <p style="text-align: center; max-width: 700px; margin: 10px auto 40px;">
-      Have a question or need help? Fill out the form below and our friendly team will get back to you fast.
-    </p>
+    <?php if ($sent): ?>
+      <div style="background:#181a1b; color:#00ffce; border-radius:8px; padding:24px; text-align:center; margin-bottom:32px;">
+        <b>Thank you!</b> One of our Wellington based team will be in contact shortly.
+      </div>
+    <?php elseif ($error && $_SERVER['REQUEST_METHOD'] === 'POST'): ?>
+      <div style="background:#181a1b; color:#ff5c5c; border-radius:8px; padding:24px; text-align:center; margin-bottom:32px;">
+        Sorry, there was a problem sending your message. Please try again or email <a href="mailto:help@synctech.co.nz" style="color:#00ffce;">help@synctech.co.nz</a>.
+      </div>
+    <?php endif; ?>
     <div class="form-flex" style="display: flex; flex-wrap: nowrap; gap: 48px; justify-content: center; align-items: flex-start;">
       <div style="flex:2; min-width:320px; max-width:480px; background:#181a1b; border-radius:18px; box-shadow:0 2px 18px rgba(0,255,206,0.07); padding:40px 28px;">
-        <form id="contact-form" action="mailto:help@synctech.co.nz" method="POST" enctype="text/plain" autocomplete="off">
+        <form id="contact-form" action="" method="POST" autocomplete="off">
           <div class="form-group">
             <input type="text" name="name" required placeholder=" " />
             <label>Name</label>
@@ -153,8 +134,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
     </div>
   </main>
-  HTML;
-  ?>
 
   <footer class="footer">
     <div class="container">
