@@ -39,7 +39,7 @@ a:hover { color: #00e6b8; }
   flex-wrap: wrap;
   justify-content: flex-end;
   align-items: center;
-  gap: 28px;
+  gap: 24px;
   margin-top: -56px;
 }
 .nav a {
@@ -49,51 +49,87 @@ a:hover { color: #00e6b8; }
   letter-spacing: 0.01em;
   padding: 6px 0;
   border-bottom: 2px solid transparent;
-  transition: color 0.2s, border 0.2s;
+  transition: color 0.2s, border 0.2s, background 0.2s;
+  background: none;
+  border-radius: 5px;
+  display: inline-block;
+  line-height: 1.2;
 }
 .nav a.active,
 .nav a:hover { color: #00ffce; border-bottom: 2px solid #00ffce; }
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  z-index: 1001;
-  min-width: 44px;
-  min-height: 44px;
-  justify-content: center;
-  align-items: center;
-  padding: 8px;
+
+/* Subtle style for special nav buttons */
+.nav a.remote-link {
+  color: #00ffce;
+  border: 1px solid transparent;
+  padding: 5px 14px;
+  margin-left: 10px;
+  font-size: 1.01rem;
+  font-weight: 500;
+  background: none;
+  border-radius: 5px;
+  transition: border 0.2s, background 0.2s, color 0.2s;
 }
-.nav-toggle span {
-  height: 3px;
-  background: #fff;
-  margin: 4px 0;
-  width: 25px;
-  border-radius: 2px;
-  display: block;
+.nav a.remote-link:hover {
+  background: #181a1b;
+  border: 1px solid #00ffce;
+  color: #00ffce;
+}
+
+.nav a.helpdesk-link {
+  color: #00ffce;
+  border: 1px solid #00ffce;
+  padding: 5px 14px;
+  margin-left: 6px;
+  font-size: 1.01rem;
+  font-weight: 500;
+  background: none;
+  border-radius: 5px;
+  transition: background 0.2s, color 0.2s;
+}
+.nav a.helpdesk-link:hover {
+  background: #00ffce;
+  color: #181a1b;
+  border: 1px solid #00ffce;
+}
+
+/* Responsive nav fix for overflow */
+@media (max-width: 1200px) {
+  .nav {
+    gap: 14px;
+  }
+  .nav a {
+    font-size: 1rem;
+    padding: 5px 0;
+  }
+  .nav a.remote-link,
+  .nav a.helpdesk-link {
+    font-size: 0.98rem;
+    padding: 5px 10px;
+  }
+}
+@media (max-width: 900px) {
+  .nav {
+    gap: 10px;
+  }
 }
 @media (max-width: 768px) {
   .nav {
-    display: none;
     flex-direction: column;
-    background: #181a1b;
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    width: 90vw;
-    max-width: 320px;
-    padding: 20px;
-    border-radius: 8px;
-    z-index: 1000;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 0;
   }
-  .nav.show {
-    display: flex;
+  .nav a {
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: none;
   }
-  .nav-toggle {
-    display: flex;
-    position: absolute;
-    right: 20px;
-    top: 25px;
+  .nav a.remote-link,
+  .nav a.helpdesk-link {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 2px;
   }
 }
 
