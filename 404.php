@@ -15,46 +15,36 @@
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
-  <header class="header">
-    <div class="container">
-      <div class="logo" style="margin-bottom: 30px;">
-        <img src="images/logo.png" alt="Sync Tech Logo" style="height:90px;">
-      </div>
-      <div class="nav-toggle"><span></span><span></span><span></span></div>
-      <nav class="nav">
-        <a href="index.php">Home</a>
-        <a href="services.php">Services</a>
-        <a href="about.php">About</a>
-        <a href="book.php">Book</a>
-        <a href="plans.php">Plans</a>
-        <a href="testimonials.php">Testimonials</a>
-        <a href="contact.php">Contact</a>
-        <a href="https://helpdesk.synctech.co.nz" target="_blank" rel="noopener" class="btn-black" tabindex="0" style="margin-left:10px; font-size:1.01rem; padding:8px 18px;">Helpdesk Login</a>
-      </nav>
-    </div>
-  </header>
-  <main class="container" style="padding: 100px 20px; text-align: center;">
-    <div class="logo" style="margin-bottom: 30px;">
+  <div class="container" style="padding: 100px 20px; text-align: center;">
+    <div style="margin-bottom: 30px;">
       <img src="images/logo.png" alt="Sync Tech Logo" style="height:90px;">
     </div>
-    <h1 style="font-size: 3rem; color: #00ffce;">404</h1>
-    <p style="font-size: 1.5rem; color: #ccc; margin-bottom: 28px;">
-      <span style="font-size:2.5rem;">&#128421;&#65039;</span><br>
-      Uh oh! This page is missing, unplugged, or just having a bad day.<br>
-      <span style="color:#00ffce;">IT Support Tip:</span> Try turning it off and on again... or<br>
-      <span style="color:#00ffce;">Need help?</span> <a href="contact.php" style="color:#00ffce; text-decoration:underline;">Contact Sync Tech Support</a> and we'll get you back on track!
+    <h1 style="font-size: 4rem; color: #00ffce; margin-bottom: 0;">404</h1>
+    <div style="font-size:2.5rem; margin-bottom: 18px;">&#128561; &#128421;&#65039;</div>
+    <h2 style="color:#fff; margin-bottom: 18px;">Oops! This page wandered off...</h2>
+    <p style="font-size: 1.3rem; color: #ccc; margin-bottom: 28px;">
+      Our techs have checked under the desk, behind the monitor, and even in the fridge.<br>
+      <span style="color:#00ffce;">But we still can't find this page!</span>
     </p>
     <div style="margin-bottom: 20px;">
       <code style="background:#181a1b; color:#00ffce; padding:8px 18px; border-radius:8px; font-size:1.08rem;">
         Error: PAGE_NOT_FOUND<br>
-        at /404.php:1:1
+        at /404:1:1
       </code>
     </div>
-    <a href="index.php" class="btn-primary" style="margin-top: 20px; display: inline-block;">Go to Homepage</a>
+    <div style="margin: 30px 0;">
+      <img src="https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif" alt="Lost Cat Gif" style="width:180px; border-radius:12px; margin-bottom:12px;">
+      <div style="color:#aaa; font-size:1.1rem;">
+        <em>Maybe the page is off fixing someone else's WiFi?</em>
+      </div>
+    </div>
+    <a href="index" class="btn-primary" style="margin-top: 20px; display: inline-block;">Take me home</a>
     <div style="margin-top:32px; color:#888; font-size:1.05rem;">
       <span style="font-size:1.5rem;">&#128187;</span> <em>Sync Tech – Your friendly IT support team</em>
     </div>
-  </main>
-  <script src="js/script.js" defer></script>
+    <div style="margin-top:32px; color:#00ffce; font-size:1.2rem;">
+      <span style="font-size:2rem;">&#128062;</span> <b>404? More like 4-oh-no!</b>
+    </div>
+  </div>
 </body>
 </html>
