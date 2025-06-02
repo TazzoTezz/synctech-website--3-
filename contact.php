@@ -146,6 +146,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
       <button type="submit" class="btn-primary" style="width:100%; font-size:1.15rem;">Send Message</button>
     </form>
+
+    <?php
+    // Output the sidebar info after the form (no HTML changes needed in the HTML file)
+    echo <<<HTML
+    <div class="sidebar-card" style="flex:1; min-width:260px; max-width:340px; margin:0;">
+        <h3 style="color:#00ffce; margin-bottom:18px;">Contact Details</h3>
+        <div style="margin-bottom:18px;">
+            <div style="margin-bottom:10px;"><span style="color:#00ffce;">&#128222;</span> <a href="tel:0800796233" style="color:#00ffce; font-weight:600;">0800 SYNCED <span style="font-size:0.95em;">(0800 796 233)</span></a></div>
+            <div style="margin-bottom:10px;"><span style="color:#00ffce;">&#9993;</span> <a href="mailto:help@synctech.co.nz" style="color:#00ffce;">help@synctech.co.nz</a></div>
+            <div><span style="color:#00ffce;">&#127968;</span> Mobile & Remote Service</div>
+        </div>
+        <h3 style="color:#00ffce; margin:24px 0 12px 0;">Why Choose Sync Tech?</h3>
+        <div style="text-align:center; margin-bottom:14px;">
+            <a onclick="alert('To get support:\\n\\n1. Press Windows + R\\n2. Type quickassist\\n3. Press Enter\\n4. Follow the on-screen instructions.')" class="btn-black" tabindex="0" style="display:inline-block; cursor:pointer; font-size:1.01rem; padding:8px 18px; margin-bottom:8px;">&#128187; Remote Assistance</a>
+        </div>
+        <ul>
+            <li>✔ We come to you — at home or your workplace (Wellington)</li>
+            <li>✔ Remote support available in Wellington</li>
+            <li>✔ No obligation & no fix, no fee</li>
+            <li>✔ Friendly, fast, and experienced techs</li>
+            <li>✔ Same-day appointments available</li>
+        </ul>
+    </div>
+    HTML;
+    ?>
   </main>
 
   <footer class="footer">

@@ -155,6 +155,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
       <button type="submit" class="btn-primary" style="width:100%; font-size:1.15rem;">Book Now</button>
     </form>
+
+    <?php
+    // Output the sidebar info after the form (no HTML changes needed in the HTML file)
+    echo <<<HTML
+    <div class="sidebar-card" style="flex:1; min-width:260px; max-width:340px; margin:0;">
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=400&q=80" alt="IT Technician with PC" style="width:100%; border-radius:10px; margin-bottom:18px; object-fit:cover; height:120px;">
+        <h3 style="color:#00ffce; margin-bottom:18px;">How Booking Works</h3>
+        <ul>
+            <li>✔ We confirm your booking by phone or email</li>
+            <li>✔ Choose mobile or remote support</li>
+            <li>✔ No fix, no fee guarantee</li>
+            <li>✔ Same-day appointments often available</li>
+            <li>✔ Friendly, qualified technicians</li>
+        </ul>
+        <div style="margin-top:18px;">
+            <span style="color:#00ffce;">&#128222;</span> <b>Need urgent help?</b><br>
+            <a href="tel:0800796233" style="color:#00ffce; font-weight:600;">0800 SYNCED <span style="font-size:0.95em;">(0800 796 233)</span></a>
+        </div>
+    </div>
+    HTML;
+    ?>
   </main>
 
   <footer class="footer">
