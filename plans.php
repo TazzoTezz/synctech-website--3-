@@ -77,10 +77,10 @@
           <li><span style="color:#00ffce;">✔</span> Flexible plans and response times</li>
           <li><span style="color:#00ffce;">✔</span> Proactive maintenance and advice</li>
         </ul>
+        <div style="text-align:center; margin-top:18px;">
+          <a href="contact" class="btn-primary" style="font-size:1.15rem;">Contact Us</a>
+        </div>
       </div>
-    </div>
-    <div style="text-align:center; margin-top:32px;">
-      <a href="contact" class="btn-primary" style="font-size:1.15rem;">Contact Us to Discuss</a>
     </div>
   </main>
   <footer class="footer">

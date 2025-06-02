@@ -352,7 +352,7 @@ h2 {
   border: 1.5px solid #222;
   color: #e0e0e0;
   border-radius: 10px;
-  padding: 22px 16px 10px 16px;
+  padding: 26px 16px 10px 16px;
   font-size: 1rem;
   width: 100%;
   transition: border 0.2s, box-shadow 0.2s, background 0.2s;
@@ -378,7 +378,17 @@ h2 {
   padding: 0 4px;
   font-weight: 400;
   background: transparent;
+  z-index: 2;
 }
+
+/* Fix floating label overlapping with input text */
+.form-group input,
+.form-group textarea {
+  /* ...existing code... */
+  padding: 26px 16px 10px 16px;
+  /* ↑ Increased top padding for input text */
+}
+
 .form-group input:focus + label,
 .form-group input:not(:placeholder-shown) + label,
 .form-group textarea:focus + label,
@@ -388,6 +398,7 @@ h2 {
   font-size: 0.85rem;
   color: #00ffce;
   background: #181a1b;
+  z-index: 3;
 }
 form button.btn-primary {
   margin-top: 10px;
