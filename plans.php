@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" crossorigin="anonymous">
+  <script src="https://www.google.com/recaptcha/api.js?render=6Lcp1lIrAAAAAJFnn57bf4cDDybUkVb0BDoHoMrD"></script>
 </head>
 <body>
   <header class="header">
@@ -57,11 +58,11 @@
           </span>
         </div>
         <p style="margin-bottom:8px;">Includes 2 hours support per month and a free annual PC health check.</p>
-        <ul style="text-align:left; margin:10px 0 0 0; padding-left:18px;">
-          <li>✔ 2 hours of support per month</li>
-          <li>✔ Free annual PC health check</li>
-          <li>✔ Priority booking</li>
-          <li>✔ Discounted additional hours</li>
+        <ul style="list-style:none; text-align:left; margin:10px 0 0 0; padding-left:0;">
+          <li><span style="color:#00ffce;">✔</span> 2 hours of support per month</li>
+          <li><span style="color:#00ffce;">✔</span> Free annual PC health check</li>
+          <li><span style="color:#00ffce;">✔</span> Priority booking</li>
+          <li><span style="color:#00ffce;">✔</span> Discounted additional hours</li>
         </ul>
       </div>
       <div class="feature">
@@ -71,10 +72,10 @@
             Contact us to discuss
           </span>
         </div>
-        <ul style="text-align:left; margin:10px 0 0 0; padding-left:18px;">
-          <li>✔ Tailored support for your business</li>
-          <li>✔ Flexible plans and response times</li>
-          <li>✔ Proactive maintenance and advice</li>
+        <ul style="list-style:none; text-align:left; margin:10px 0 0 0; padding-left:0;">
+          <li><span style="color:#00ffce;">✔</span> Tailored support for your business</li>
+          <li><span style="color:#00ffce;">✔</span> Flexible plans and response times</li>
+          <li><span style="color:#00ffce;">✔</span> Proactive maintenance and advice</li>
         </ul>
       </div>
     </div>
